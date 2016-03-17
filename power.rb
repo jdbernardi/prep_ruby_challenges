@@ -9,7 +9,6 @@ Write a method power which takes two integers (base and exponent) and returns th
   #for exponent number of times
 def power(base, exponent)
   base_array = Array.new
-
   exponent.times do 
     base_array << base
   end
