@@ -5,28 +5,24 @@ Write a method factorial which takes a number and returns the product of every n
 =end
 
 #PROGRAM factorial(NUMBER)
-def factorial(number)
-#starting at 1
-  i = 1
+def factorial(number) 
+  #create an array
+  factorial_array = Array.new
 
-#while the numbers multiplied are less than the NUMBER
-  while i <= number
-#create a new number after 1 (.next)
-    number_2 = i + 1
-    puts i
-      if number_2 > number
-        break
-      end
-    total = number_2 * i 
-    i += 1
-    puts total
+
+  #starting at 1 and ending at the number
+
+  for i in 1..number 
+  #push each number to that array
+    factorial_array << i
   end
+  
+  #multiply the numbers with an inject
+    total = factorial_array.inject(1) { |mem, var| mem * var }
+    puts total  
 
 end
 
-#multiply those numbers together
-#add those to a TOTAL
-#repeat
 
 puts "Enter a number"
 number = gets.chomp.to_i
