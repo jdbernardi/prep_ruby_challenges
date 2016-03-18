@@ -24,7 +24,6 @@ while array1_index < array1.length
 #reset the second array for each pass
 array2_index = 0
 
-puts "entering array2 loop"
   while array2_index < array2.length
     #combine the two elements and add them to array3
     array3 << array1[array1_index] + array2[array2_index]
@@ -33,12 +32,11 @@ puts "entering array2 loop"
     #repeat until all elements in array2 have been touched
   end
 #then go to the next element in array1
-puts "out of array2 loop"
 array1_index = array1_index + 1
 #repeat the combination process above
 end
 #print array3
-print array3
+puts array3
 
 end
 
