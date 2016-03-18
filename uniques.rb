@@ -8,16 +8,34 @@ uniques([1,5,”frog”, 2,1,3,”frog”])
 #PROGRAM uniques
 #receive an array from the user
 #check the length of the array
+#take the array, remove the first value and put it in a hash
+#then take the next value in the array and put it in the hash only 
+#if there is no value already
 
-#start i (count) at 0
 
 
 
+def uniques(array)
+
+  i = 0
+  single_array = Array.new
+
+
+
+    
+
+  end  
+
+  puts "single array #{single_array}"
+
+
+
+end
 
 
 #while the count is less than the array length
 
-
+=begin
 def uniques(array)
 
 index_1 = 0 
@@ -32,12 +50,12 @@ while index_1 < array.length
   #check if the first item equals the second item
     if array[index_1] == array[index_2]
       #if its equal, pop the item
-      array.pop[index_1 + 1]
+      array.pop[index_1]
     end
   #else go to the next index
   index_2 += 1
 end
-  #increment the count
+  #increment the 1 count
   index_1 += 1
 
 end
@@ -45,6 +63,6 @@ end
 print array
 
 end
-
+=end
 uniques([1,5,"frog", 2, 1, 3, "frog"])
 
