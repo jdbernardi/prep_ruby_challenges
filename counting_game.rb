@@ -23,14 +23,27 @@ def counting_game(number_of_players, number_counting_to)
 
 #a count will be established = 1
 count = 1
+#the end count is established
+number_counting_to = number_counting_to
+#set up count for making player array
+i = 1
 #an array of PERSONS will be created based on the # of players
+number_of_players = number_of_players
+
 persons = Array.new
 
-for number_of_players in 1..number_of_players
-  persons = [["Person #{}"]]
+while i <= number_of_players
+  persons << ["Person #{i}:",0]
+  i += 1
+end
+
 #each array will have the PERSON and the COUNT
 #the COUNT will change, the PERSON will not
 
+while count <= number_counting_to
+  puts count
+  count += 1
+end
 #until the number_counting_to is reached
 #start with the first person who COUNTs 1
 #put a line saying PERSON 1 says COUNT
@@ -45,3 +58,12 @@ for number_of_players in 1..number_of_players
   #the COUNT goes up
   #the PERSON in DIRECTION increments
 #end
+end
+
+
+puts "enter the number of players"
+number_of_players = gets.chomp.to_i
+puts "enter the number we're counting to"
+number_counting_to = gets.chomp.to_i
+
+counting_game(number_of_players, number_counting_to)
