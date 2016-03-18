@@ -23,6 +23,8 @@ count = 0
 #starting at 1 and up to the NUMBER
 while i <= number
   #check if NUMBER % i == 0
+  #add check to count to eliminate going through each number if > 2
+  count > 2 ? break : 
   if number % i == 0
     #if it is then add to count
     count += 1
