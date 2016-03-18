@@ -23,6 +23,7 @@ def counting_game(number_of_players, number_counting_to)
 
 #a count will be established = 1
 count = 1
+person_count = 0
 #the end count is established
 number_counting_to = number_counting_to
 #set up count for making player array
@@ -33,19 +34,24 @@ number_of_players = number_of_players
 persons = Array.new
 
 while i <= number_of_players
-  persons << ["Person #{i}:",0]
+  persons << ["Person #{i}:",]
   i += 1
 end
 
 #each array will have the PERSON and the COUNT
 #the COUNT will change, the PERSON will not
 
-while count <= number_counting_to
-  puts count
-  count += 1
-end
+
 #until the number_counting_to is reached
+while count <= number_counting_to
+  puts "count: #{count}"
+  persons[person_count,1] << [person_count,count]
+  count += 1 
+  person_count += 1
+  print persons
+
 #start with the first person who COUNTs 1
+
 #put a line saying PERSON 1 says COUNT
 #check to see if COUNT is divisible by 7 
 #if COUNT is divisible by 7
@@ -58,6 +64,8 @@ end
   #the COUNT goes up
   #the PERSON in DIRECTION increments
 #end
+
+end #end of while count <= number_counting_to
 end
 
 
