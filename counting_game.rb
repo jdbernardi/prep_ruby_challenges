@@ -21,99 +21,50 @@ Make your method take two inputs -- the number of players and the number you're 
 #PROGRAM counting_game(number_of_players, number_counting_to)
 def counting_game(number_of_players, number_counting_to)
 
-#need to have a condition where if at last item in arr
+  #create variable of the count of which person we are on
+  which_person = 1
+  #create the variable of the count where the game will end
+  count = 1
+  #establish a boolean for direction - clockwise == true // counter-clockwise == false
+  clockwise = true
 
-#a count will be established = 1
-count = 1
-person_count = 0
-#the end count is established
-number_counting_to = number_counting_to
-#set up count for making player array
-i = 1
-#an array of PERSONS will be created based on the # of players
-number_of_players = number_of_players
+  #until the number_counting_to is reached
+  while count <= number_counting_to && clockwise == true
+  #start with the first person who COUNTs 1
+    puts "Person #{which_person} counts #{count}!"
+  #we need to have a condition that tracks the total number of players, depending on the direction of the count it will need to go forward or backward
+    if which_person == number_of_players
+      which_person = 1
+    end
 
-persons = Array.new
-
-while i <= number_of_players
-  persons << ["Person #{i}:",]
-  i += 1
-end
-
-puts persons.last
-
-#each array will have the PERSON and the COUNT
-#the COUNT will change, the PERSON will not
-
-
-#until the number_counting_to is reached
-while count <= number_counting_to
-#start with the first person who COUNTs 1
-
-#check if at the last element in the array
-#if persons.index == count
-
-last_element_check(persons)
-
-    persons[person_count][1] = count
-  #put a line saying PERSON 1 says COUNT
-  puts "Person:#{person_count+1} Count:#{count}  "
-
-#check to see if COUNT is divisible by 7 
 
 #if COUNT is divisible by 7
-if count % 7 == 0
-  divisible_by_7(person_count, count, number_counting_to)
-elsif count % 11 == 0
-  divisible_by_11(person_count, count, number_counting_to)
-end
+    if count % 7 == 0
+      divisible_by_7(person_count, count, number_counting_to)
+    elsif count % 11 == 0
+      divisible_by_11(person_count, count, number_counting_to)
+    end
 
-  #the direction in the array will reverse
+  end #end of while count <= number_counting_to
 
-  #the next PERSON will increase the COUNT
-#elsif the COUNT is divisble by 11
-  #skip the PERSON in the array
-  #the next PERSON will COUNT up
-#else
-  #the COUNT goes up
-  #the PERSON in DIRECTION increments
-#end
-
-  person_count +=1 
-  count += 1
-end #end of while count <= number_counting_to
-
-
-#puts "Person #{person_count} end at the count number : #{count-1}"
 end
 
 #=====================================================
 #called when count % 7 == 0 // REVERSE DIRECTIONS
-def divisible_by_7(person, count, number_counting_to)
+def divisible_by_7(person, count, current_direction)
   puts "7 called"
 
 end
 
 #=====================================================
 #called when count % 11 == 0 // SKIP PERSON
-def divisible_by_11(person, count, number_counting_to)
+def divisible_by_11(person, count, current_direction)
   puts "11 caled"
 
 end
 
 #=====================================================
-#called to check if at the last element
-def last_element_check(array)
-  array.each.with_index do |x, index|
-    if index == 0
-      next
-    elsif index < array.size - 1
-      next
-    else
-      puts "last element"
-    end
-  end
-end
+
 
 puts "enter the number of players"
 number_of_players = gets.chomp.to_i
