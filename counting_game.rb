@@ -19,6 +19,10 @@ Make your method take two inputs -- the number of players and the number you're 
 =end
 
 #PROGRAM counting_game(number_of_players, number_counting_to)
+
+
+
+
 def counting_game(number_of_players, number_counting_to)
 
   #create variable of the count of which person we are on
@@ -26,26 +30,26 @@ def counting_game(number_of_players, number_counting_to)
   #create the variable of the count where the game will end
   count = 1
   #establish a boolean for direction - clockwise == true // counter-clockwise == false
-  clockwise = true
+  direction = true
 
   #until the number_counting_to is reached
-  while count <= number_counting_to && clockwise == true
+  while count <= number_counting_to && direction == true
   #start with the first person who COUNTs 1
     puts "Person #{which_person} counts #{count}!"
   #we need to have a condition that tracks the total number of players, depending on the direction of the count it will need to go forward or backward
     if which_person == number_of_players
-      which_person = 1
+      which_person = 0
     end
-  #if COUNT is divisible by 7
+  #check conditions for 7, 11 and both
     if count % 7 == 0 && count % 11 == 0
-      clockwise(clockwise)
-      divisible_by_7(person_count, count, number_counting_to)
-      divisible_by_11(person_count, count, number_counting_to)
+      direction = false ? direction == true : direction == false
+      divisible_by_7(which_person, count, number_counting_to)
+      divisible_by_11(which_person, count, number_counting_to)
     elsif count % 7 == 0 
-      clockwise(clockwise)
-      divisible_by_7(person_count, count, number_counting_to)
+      
+      divisible_by_7(which_person, count, number_counting_to)
     elsif count % 11 == 0
-      divisible_by_11(person_count, count, number_counting_to)
+      divisible_by_11(which_person, count, number_counting_to)
     end
 
     count += 1
@@ -59,7 +63,6 @@ end
 #called when count % 7 == 0 // REVERSE DIRECTIONS
 def divisible_by_7(person, count, current_direction)
   puts "7 called"
-
 end
 
 #=====================================================
@@ -68,12 +71,12 @@ def divisible_by_11(person, count, current_direction)
   puts "11 caled"
 end
 #=====================================================
-clockwise(direction)
-  if clockwise == true
-    return false
-  else return true
-  end
-end
+#def clockwise(direction)
+#  if direction == 0
+#    return 1
+#  else return 0
+#  end
+#end
 
 puts "enter the number of players"
 number_of_players = gets.chomp.to_i
