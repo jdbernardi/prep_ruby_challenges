@@ -48,6 +48,9 @@ def counting_game(number_of_players, number_counting_to)
       divisible_by_11(person_count, count, number_counting_to)
     end
 
+    count += 1
+    which_person += 1
+
   end #end of while count <= number_counting_to
 
 end
