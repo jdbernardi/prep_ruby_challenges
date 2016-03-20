@@ -36,10 +36,13 @@ def counting_game(number_of_players, number_counting_to)
     if which_person == number_of_players
       which_person = 1
     end
-
-
-#if COUNT is divisible by 7
-    if count % 7 == 0
+  #if COUNT is divisible by 7
+    if count % 7 == 0 && count % 11 == 0
+      clockwise(clockwise)
+      divisible_by_7(person_count, count, number_counting_to)
+      divisible_by_11(person_count, count, number_counting_to)
+    elsif count % 7 == 0 
+      clockwise(clockwise)
       divisible_by_7(person_count, count, number_counting_to)
     elsif count % 11 == 0
       divisible_by_11(person_count, count, number_counting_to)
@@ -60,11 +63,14 @@ end
 #called when count % 11 == 0 // SKIP PERSON
 def divisible_by_11(person, count, current_direction)
   puts "11 caled"
-
 end
-
 #=====================================================
-
+clockwise(direction)
+  if clockwise == true
+    return false
+  else return true
+  end
+end
 
 puts "enter the number of players"
 number_of_players = gets.chomp.to_i
