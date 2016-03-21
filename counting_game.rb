@@ -33,13 +33,17 @@ def counting_game(number_of_players, number_counting_to)
   direction = true
 
   #until the number_counting_to is reached
-  while count <= number_counting_to && direction == true
+  while count <= number_counting_to
   #start with the first person who COUNTs 1
     puts "Person #{which_person} counts #{count}!"
   #we need to have a condition that tracks the total number of players, depending on the direction of the count it will need to go forward or backward
-    if which_person == number_of_players
-      which_person = 0
-    end
+
+  if which_person == number_of_players
+    which_person = 0
+  elsif which_person == 1 && direction == false
+    which_person = number_of_players
+  end
+
   #check conditions for 7, 11 and both
     if count % 7 == 0 && count % 11 == 0
       direction = clockwise(direction)
@@ -53,7 +57,15 @@ def counting_game(number_of_players, number_counting_to)
     end
 
     count += 1
+
+    if which_person == 1 && direction == false
+      which_person = number_of_players
+    end
+
+if direction == true
     which_person += 1
+else which_person -= 1
+end
 
   end #end of while count <= number_counting_to
 
@@ -63,6 +75,7 @@ end
 #called when count % 7 == 0 // REVERSE DIRECTIONS
 def divisible_by_7(person, count, current_direction)
   puts "7 called"
+
 end
 
 #=====================================================
