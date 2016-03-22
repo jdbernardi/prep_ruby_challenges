@@ -15,7 +15,7 @@ Write a method overlap which takes two rectangles defined by the coordinates of 
 
 #compare the x and y coordinates of the arrays
 #taking the max and min of each array
-#if the min values of x
+
 
 def overlap(rect1, rect2)
 
