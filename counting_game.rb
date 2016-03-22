@@ -31,63 +31,89 @@ def counting_game(number_of_players, number_counting_to)
   count = 1
   #establish a boolean for direction - clockwise == true // counter-clockwise == false
   direction = true
+  
 
   #until the number_counting_to is reached
   while count <= number_counting_to
   #start with the first person who COUNTs 1
+    #puts direction
     puts "Person #{which_person} counts #{count}!"
   #we need to have a condition that tracks the total number of players, depending on the direction of the count it will need to go forward or backward
-
-  if which_person == number_of_players
-    which_person = 0
-  elsif which_person == 1 && direction == false
-    which_person = number_of_players
-  end
 
   #check conditions for 7, 11 and both
     if count % 7 == 0 && count % 11 == 0
       direction = clockwise(direction)
-      divisible_by_7(which_person, count, number_counting_to)
-      divisible_by_11(which_person, count, number_counting_to)
+
     elsif count % 7 == 0
       direction = clockwise(direction) 
-      divisible_by_7(which_person, count, number_counting_to)
-    elsif count % 11 == 0
-      divisible_by_11(which_person, count, number_counting_to)
+   
     end
+
+        
+    
+  if count % 11 != 0
+    if which_person != number_of_players && direction == true
+      which_person +=1
+      #puts "1st if for 11"
+    elsif  which_person == number_of_players && direction == true
+      which_person = 1
+      #puts "2nd if for 11"
+    elsif which_person == 1 && direction == false
+      which_person = number_of_players
+      #puts "3rd if for 11"
+    elsif which_person != 1 && direction == false
+      which_person -= 1
+      #puts "last if for 11"
+    end
+  elsif count % 11 == 0
+    if which_person == 1 && direction == false
+      which_person = number_of_players - 1
+      #puts "1st if for 11==0"
+    elsif which_person == 1 && direction == true
+      which_person += 1
+      #puts "2nd if for 11==0"
+    elsif which_person == number_of_players && direction == true
+      which_person = 2
+      #puts "3rd if for 11==0"
+    elsif which_person == number_of_players && direction == false
+      which_person -= 2
+      #puts "4th if for 11==0"
+    elsif which_person == number_of_players - 1 && direction == true
+      which_person = 1
+      #puts "5th if for 11==0"
+    elsif which_person <= number_of_players - 2 && which_person >= 3 && direction == true
+      which_person += 2
+      #puts "6th if for 11 == 0"
+    elsif which_person <= number_of_players - 2 && which_person >= 3 && direction == false
+      which_person -= 2
+      #puts "7th if for 11 == 0"
+    elsif which_person == 2 && direction == false
+      which_person == number_of_players
+    elsif which_person == 2 && direction == true
+      which_person +=2
+      puts "called"
+      
+    end
+      
+
+  end
+
+
 
     count += 1
 
-    if which_person == 1 && direction == false
-      which_person = number_of_players
-    end
-
-if direction == true
-    which_person += 1
-else which_person -= 1
-end
+   
 
   end #end of while count <= number_counting_to
 
 end
 
-#=====================================================
-#called when count % 7 == 0 // REVERSE DIRECTIONS
-def divisible_by_7(person, count, current_direction)
-  puts "7 called"
 
-end
-
-#=====================================================
-#called when count % 11 == 0 // SKIP PERSON
-def divisible_by_11(person, count, current_direction)
-  puts "11 caled"
-end
-#=====================================================
 def clockwise(direction)
  direction = false ? direction == true : direction == false
 end
-#=====================================================
+
+
 
 puts "enter the number of players"
 number_of_players = gets.chomp.to_i
