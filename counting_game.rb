@@ -42,10 +42,8 @@ def counting_game(number_of_players, number_counting_to)
   #we need to have a condition that tracks the total number of players, depending on the direction of the count it will need to go forward or backward
 
   #check conditions for 7, 11 and both
-    if count % 7 == 0 && count % 11 == 0
+    if count % 7 == 0 
       direction = clockwise(direction)
-    elsif count % 7 == 0
-      direction = clockwise(direction) 
     end
 
         
