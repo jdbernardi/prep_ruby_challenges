@@ -32,7 +32,6 @@ def counting_game(number_of_players, number_counting_to)
   count = 1
   #establish a boolean for direction - clockwise == true // counter-clockwise == false
   direction = true
-  
 
   #until the number_counting_to is reached
   while count <= number_counting_to
@@ -41,77 +40,49 @@ def counting_game(number_of_players, number_counting_to)
     puts "Person #{which_person} counts #{count}!"
   #we need to have a condition that tracks the total number of players, depending on the direction of the count it will need to go forward or backward
 
-  #check conditions for 7, 11 and both
+  #check conditions for 7
     if count % 7 == 0 
       direction = clockwise(direction)
     end
 
-        
-    
   if count % 11 != 0
     if which_person != number_of_players && direction == true
       which_person +=1
-      puts "1st"
     elsif  which_person == number_of_players && direction == true
       which_person = 1
-      puts "2nd"
     elsif which_person == 1 && direction == false
       which_person = number_of_players
-      puts "3rd"
     elsif which_person != 1 && direction == false
       which_person -= 1
-      puts "4th"
     end
   elsif count % 11 == 0
     if which_person == 1 && direction == false
       which_person = number_of_players - 1
-      puts "5th"
     elsif which_person == 1 && direction == true
       which_person += 1
-      puts "6th"
     elsif which_person == number_of_players && direction == true
       which_person = 2
-      puts "7th"
     elsif which_person == number_of_players && direction == false
       which_person -= 2
-      puts "8th"
     elsif which_person == number_of_players - 1 && direction == true
       which_person = 1
-      puts "9th"
     elsif which_person <= number_of_players - 2 && which_person >= 3 && direction == true
       which_person += 2
-      puts "10th"
     elsif which_person <= number_of_players - 2 && which_person >= 3 && direction == false
       which_person -= 2
-      puts "11th"
     elsif which_person == 2 && direction == false
       which_person == number_of_players
-      puts "12th"
     elsif which_person == 2 && direction == true
       which_person +=2
-      puts "13th"
-      
     end
-      
-
   end
-
-
-
     count += 1
-
-   
-
   end #end of while count <= number_counting_to
-
 end
-
 
 def clockwise(direction)
  direction = false ? direction == true : direction == false
 end
-
-
 
 puts "enter the number of players"
 number_of_players = gets.chomp.to_i
